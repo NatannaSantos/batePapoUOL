@@ -1,10 +1,69 @@
+* {
+    box-sizing: border-box;
+  }
 header{
     width: 375px;
     height: 80px;
     background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;;
+}
+    header img{
+        width: 75px;
+        height: 53px;
+        margin-left: 22px;
+    }
+    header ion-icon{
+        color: #000000;
+        font-size: 50px;  
+        margin-right: 22px;      
+    }
+body{
+    background-color: #E5E5E5;
 }
 main{
     width: 375px;
     height: 507px;
-    background-color: #E5E5E5;
+    
+}
+    .status, .conversa,.reservada{
+        width: 375px;
+        height: 40px;
+        margin-top: 4px;
+    }
+    .status{
+        background-color: #DCDCDC;
+    }
+    .conversa{
+        background-color: #FFFFFF;        
+        }
+    .reservada{
+        width: 375px;
+        height: 63px;
+        background-color: #FFDEDE;
+        margin-top: 4px;
+    }
+   
+.mensagem{
+    width: 375px;
+    height: 80px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px,-4px,6px,0px, rgba(0,0,0,0,05) ;
+}
+.mensagem ion-icon{
+    font-size: 30px;
+    margin-right: 22px;
+}
+.mensagem input{
+    width: 300px;
+    height: 75px;
+    margin-left: 22px;
+    border-color:#FFFFFF;
+    
+
 }
