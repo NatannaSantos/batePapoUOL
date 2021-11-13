@@ -78,3 +78,20 @@ function ContinuaSala(){
     var permanencia = {name: NomeUsuario}
     const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", permanencia);
 }
+function EnviarMensagem(){    
+    let Mensagem = document.querySelector(".Mensagem");
+    console.log(Mensagem.value);
+    var Mensagem_Enviada = {
+                            from: NomeUsuario, 
+                            to: "Todos", 
+                            text: Mensagem.value, 
+                            type: "message"
+                        };
+    const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages", Mensagem_Enviada);
+    requisicao.then(buscardados);
+    requisicao.catch(ErroMensagem);
+}
+
+function ErroMensagem(){
+    window.location.reload();
+}
