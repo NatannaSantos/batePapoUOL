@@ -26,12 +26,25 @@ body{
 main{
     width: 375px;
     height: 507px;
+    overflow-y:scroll ;   
+}     
     
-}
     .status, .conversa,.reservada{
         width: 375px;
         height: 40px;
         margin-top: 4px;
+        display: flex;
+        align-items: center;        
+    }
+    .status p, .conversa p, .reservada p{
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+    }
+    .hora{
+        color: #AAAAAA;
+    }
+    .nome, .para{
+        font-weight: bold;
     }
     .status{
         background-color: #DCDCDC;
