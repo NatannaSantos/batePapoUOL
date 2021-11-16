@@ -85,8 +85,9 @@ function ContinuaSala(){
     const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", permanencia);
 }
 function EnviarMensagem(){ 
-    let Mensagem = document.querySelector(".Mensagem");    
-            
+   console.log("pessoa: " +PessoaEscolhida);   
+    let Mensagem = document.querySelector(".Mensagem");   
+    
     var Mensagem_Enviada = {
                             from: NomeUsuario, 
                             to: PessoaEscolhida, 
@@ -97,7 +98,7 @@ function EnviarMensagem(){
     const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages", Mensagem_Enviada);
     requisicao.then(buscardados);
     requisicao.catch(ErroMensagem);
-    Mensagem.value = '';     
+    Mensagem.value = '';
 }
 
 function ErroMensagem(){
