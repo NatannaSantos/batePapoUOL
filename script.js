@@ -64,11 +64,11 @@ function processarResposta(resposta){
                 </div>    
                 `
              } else if (resposta.data[i].type==="message"){                
-                 Sala.innerHTML += `<div class="conversa" id="Mensagem${i}" data-identifier="message">
+                 Sala.innerHTML += `<div class="conversa" id="Mensagem${i}" data-identifier="message" data-identifier="message">
                  <p><span class="hora">${hora}</span> <span class="nome">${nome} </span> para <span class="para">todos</span>: <span class="texto">${texto}</span></p>
                 </div>`
             } else {
-                 Sala.innerHTML += `<div class="reservada" id="Mensagem${i}">
+                 Sala.innerHTML += `<div class="reservada" id="Mensagem${i}" data-identifier="message">
                 <p><span class="hora">${hora}</span> <span class="nome">${nome} </span> reservadamente para <span class="para">${resposta.data[i].to}</span>: ${texto}</p>
                 </div>`
             }

@@ -21,15 +21,14 @@
     <main>
         <div class="sala"></div>
     </main>
-    <div class = "Participantes_ativos escondido" onclick= "EsconderUsuarioAtivo()"> </div> 
-        <div class ="Participantes escondido">
+    <div class = "Participantes_ativos escondido" onclick= "EsconderUsuarioAtivo()" data-identifier="participant"> </div> 
+        <div class ="Participantes escondido" data-identifier="participant">
             <div class = "topo_sidebar">
                 <p>Escolha um contato para enviar mensagem:</p>
             </div> 
 
-                <div class = "selecao_participante" data-identifier="participant">       
-                    
-                    
+                <div class = "selecao_participante" data-identifier="participant">  
+                                        
                 </div> 
                         
             <div class = "topo_sidebar">
@@ -49,7 +48,7 @@
                 </div>            
             </div>
         </div>
-    <div class="mensagem">
+    <div class="mensagem" data-identifier="message">
         <input class ="Mensagem" type="text" placeholder="Escreva aqui..."/> 
         <button class = "Envio_Mensagem" id = "submit" onclick="EnviarMensagem()" data-identifier="send-message">
             <ion-icon name="paper-plane-outline"></ion-icon>
