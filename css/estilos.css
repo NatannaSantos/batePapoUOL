@@ -84,11 +84,17 @@ input{
     width: 300px;
     height: 75px;
     margin-left: 22px;
-    border-color:#FFFFFF;
+    border:none;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
-
 }
+input:active,
+input:focus,
+input.active {
+   background-image: none;
+   outline: 0;
+   box-shadow: none;
+ }
 button{
     cursor:pointer;
     border: none;

@@ -1,5 +1,5 @@
 let NomeUsuario = '';
-let PessoaEscolhida = '';
+let PessoaEscolhida = "Todos";
 let privado = 'message';
 
 EntrarNaSala();
@@ -179,3 +179,13 @@ function SelecionarPrivacidade(selecionado){
     }
 
 }
+
+document.addEventListener("keypress", function(e) {
+    if(e.key === 'Enter') {
+    
+        var EnvioInput = document.querySelector("#submit");
+      
+      EnvioInput.click();
+    
+    }
+  });
