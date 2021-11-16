@@ -9,7 +9,7 @@ header{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 22px;
-    
+        
 }
     header img{
         width: 75px;
@@ -19,23 +19,30 @@ header{
     header ion-icon{
         color: #000000;
         font-size: 50px;  
-        margin-right: 22px;      
+        margin-right: 22px; 
+        cursor: pointer;     
     }
 body{
+    width: 375px;
     background-color: #E5E5E5;
+    position: relative;
 }
 main{
     width: 375px;
-    height: 507px;
-    overflow-y:scroll ;   
-}     
-    
+    height: 475px;
+    overflow-y:scroll ; 
+    overflow-x: hidden;
+   
+}    
+   
     .status, .conversa,.reservada{
         width: 375px;
-        height: 40px;
+        height: 100%;
         margin-top: 4px;
         display: flex;
-        align-items: center;        
+        align-items: center; 
+        padding-top: 5px;
+        padding-bottom: 5px;       
     }
     .status p, .conversa p, .reservada p{
         font-family: 'Roboto', sans-serif;
@@ -86,4 +93,82 @@ button{
     cursor:pointer;
     border: none;
     background-color: #FFFFFF;
+    
+}
+.Participantes_ativos{
+    width: 375px;
+    height: 655px;
+    background-color: #000000;
+    opacity: 0.5;
+    position: absolute;
+    top:0;   
+}
+.Participantes{
+    width: 259px;
+    height: 655px;
+    background-color: #FFFFFF;
+    opacity:1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    top:0;
+    right: 0; 
+    z-index: 1;
+    
+}
+.topo_sidebar{
+    width: 259px;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topo_sidebar p{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+}
+.selecao_participante, .selecao_privacidade{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    font-size: 16px;
+    margin-left: 18px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+    .icone ion-icon{
+    font-size: 30px;
+    margin-right: 8px;
+}
+    .icone .Marca{
+        color: #FFFFFF;
+    }
+   
+    .selecao {
+    width: 259px;
+    height: 100%;
+    position: relative;       
+    }
+    .selecao ion-icon{
+        color: black;
+    }
+    .selecao .Marca ion-icon{
+        color: green;
+        font-size: 15px;
+        position: absolute;
+        right: 30px;
+        top: 5px;
+    }
+    .icone{
+    display:flex;
+    align-items: center;
+}
+
+
+.escondido {
+    display: none;
 }

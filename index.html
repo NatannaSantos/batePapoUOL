@@ -16,17 +16,44 @@
 <body>
     <header>
         <img src ="img/logo 1.png">
-        <ion-icon name="people"></ion-icon>
+        <ion-icon name="people" onclick = "MostrarUsuarioAtivo()"></ion-icon>
     </header>
     <main>
         <div class="sala"></div>
     </main>
+    <div class = "Participantes_ativos escondido" onclick= "EsconderUsuarioAtivo()"> </div> 
+        <div class ="Participantes escondido">
+            <div class = "topo_sidebar">
+                <p>Escolha um contato para enviar mensagem:</p>
+            </div> 
+
+                <div class = "selecao_participante" >       
+                    
+                    
+                </div> 
+                        
+            <div class = "topo_sidebar">
+                <p>Escolha a visibilidade</p>            
+            </div>
+            <div class = "selecao_privacidade">
+                <div class ="icone" onclick="SelecionarPrivacidade(this)">
+                    <ion-icon name="lock-open"></ion-icon> 
+                <p>Público</p>
+                <div class ="Marca"> <ion-icon name="checkmark"></ion-icon></div>  
+                </div>
+
+                <div class ="icone" onclick="SelecionarPrivacidade(this)">
+                    <ion-icon name="lock-closed"></ion-icon> 
+                <p>Reservadamente</p>
+                <div class ="Marca"> <ion-icon name="checkmark"></ion-icon></div>  
+                </div>            
+            </div>
+        </div>
     <div class="mensagem">
         <input class ="Mensagem" type="text" placeholder="Escreva aqui..."/> 
-        <button onclick="EnviarMensagem()" data-identifier="send-message">
+        <button class = "Envio_Mensagem" onclick="EnviarMensagem()" data-identifier="send-message">
             <ion-icon name="paper-plane-outline"></ion-icon>
-        </button>
-        
+        </button>        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>   

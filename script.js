@@ -1,4 +1,6 @@
 let NomeUsuario = '';
+let PessoaEscolhida = '';
+let privado = 'message';
 
 EntrarNaSala();
  
@@ -35,7 +37,7 @@ function buscardados(){
 function processarResposta(resposta){
     const mensagens = resposta.data;
 
-        var status = document.querySelector(".status");
+    var status = document.querySelector(".status");
     var nome = document. querySelector(".status .nome");
     var hora = document. querySelector(".status .hora");
     var texto = document. querySelector(".texto");
@@ -82,15 +84,17 @@ function ContinuaSala(){
     var permanencia = {name: NomeUsuario}
     const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", permanencia);
 }
-function EnviarMensagem(){    
+function EnviarMensagem(){ 
+   console.log("pessoa: " +PessoaEscolhida);   
     let Mensagem = document.querySelector(".Mensagem");   
     
     var Mensagem_Enviada = {
                             from: NomeUsuario, 
-                            to: "todos", 
+                            to: PessoaEscolhida, 
                             text: Mensagem.value, 
-                            type: "message"
+                            type: privado
                         };
+        
     const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages", Mensagem_Enviada);
     requisicao.then(buscardados);
     requisicao.catch(ErroMensagem);
@@ -99,4 +103,79 @@ function EnviarMensagem(){
 
 function ErroMensagem(){
     window.location.reload();
+}
+
+
+function MostrarUsuarioAtivo(){
+    const ParteTransparente = document.querySelector(".Participantes_ativos");
+    const Participantes = document.querySelector(".Participantes");
+   
+
+    ParteTransparente.classList.remove("escondido");
+    Participantes.classList.remove("escondido");
+
+    ParticipanteAtivo();  
+}
+
+function ParticipanteAtivo(){
+    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/uol/participants");
+    promessa.then(BuscaParticipante);    
+}
+setInterval(ParticipanteAtivo,10000);
+
+function EsconderUsuarioAtivo(){
+    const ParteTransparente = document.querySelector(".Participantes_ativos");
+    const Participantes = document.querySelector(".Participantes");
+
+    ParteTransparente.classList.add("escondido");
+    Participantes.classList.add("escondido");
+}
+function SelecionarParticipante(selecionado){
+    const ParticipanteSelecionado = document.querySelector(".selecao_participante .selecao"); 
+    if(ParticipanteSelecionado!==null){
+        ParticipanteSelecionado.classList.remove("selecao");
+    }
+    selecionado.classList.add("selecao");
+
+    PessoaEscolhida = selecionado.childNodes[3].innerHTML;
+    
+}
+
+function BuscaParticipante(retorno){
+  
+    let TamanhoVetor = retorno.data.length;
+   
+    const Participante=document.querySelector(".selecao_participante");
+
+    Participante.innerHTML = `<div class ="icone" onclick="SelecionarParticipante(this)">
+    <ion-icon name="people"></ion-icon>
+    <p>Todos</p>  
+    <div class ="Marca"> <ion-icon name="checkmark"></ion-icon></div>                        
+    </div>`
+    
+    for (let i=0; i<TamanhoVetor; i++){
+        nome = retorno.data[i].name;
+
+        Participante.innerHTML += `<div class ="icone" onclick="SelecionarParticipante(this)">
+        <ion-icon name="person-circle"></ion-icon>
+        <p>${nome}</p>  
+        <div class ="Marca"> <ion-icon name="checkmark"></ion-icon></div>                        
+    </div> `
+        
+    }
+    
+}
+
+function SelecionarPrivacidade(selecionado){
+    const PrivacidadeSelecionada = document.querySelector(".selecao_privacidade .selecao"); 
+    if(PrivacidadeSelecionada!==null){
+       PrivacidadeSelecionada.classList.remove("selecao");
+    }
+    selecionado.classList.add("selecao");
+    if(selecionado.childNodes[3].innerHTML === "Público"){
+        privado="message";
+    }else{
+        privado="private_message";
+    }
+
 }
